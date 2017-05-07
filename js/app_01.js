@@ -1,4 +1,4 @@
-var example = (function() {
+(function() {
     "use strict";
 
     var scene, camera, renderer,
@@ -131,12 +131,12 @@ var example = (function() {
      * Animation
      */
     function animateScene() {
-        var cube = scene.getChildByName('cube0');
+        var cube = scene.getObjectByName('cube0');
         cube.rotation.x += controls.rotationSpeed;
         cube.rotation.y += controls.rotationSpeed;
         cube.rotation.z += controls.rotationSpeed;
 
-        var sphere = scene.getChildByName('sphere0');
+        var sphere = scene.getObjectByName('sphere0');
         step += controls.bouncingSpeed;
         sphere.position.x = 20 + (10 * Math.cos(step));
         sphere.position.y = 2 + (10 * Math.abs(Math.sin(step)));
@@ -161,9 +161,5 @@ var example = (function() {
         controls = initControls();
         container.appendChild(renderer.domElement);     // canvas节点被加入到page dom tree中
         renderScene();                             // 启动渲染过程
-    };
-
-    return {
-        scene: scene // 返回以便调试
     };
 })();
